@@ -1,2 +1,7 @@
 'use strict';
-console.log('two.js');
+
+const two = () => {
+    console.log('two.js');
+}
+
+export default two

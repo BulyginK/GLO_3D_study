@@ -1,2 +1,7 @@
 'use strict';
-console.log('one.js');
+
+const one = () => {
+    console.log('one.js');
+}
+
+export default one
