@@ -1,5 +1,3 @@
-'use strict';
-
 const two = () => {
     console.log('two.js');
 }

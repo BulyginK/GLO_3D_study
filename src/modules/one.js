@@ -1,5 +1,3 @@
-'use strict';
-
 const one = () => {
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
