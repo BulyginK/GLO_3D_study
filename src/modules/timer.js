@@ -11,7 +11,6 @@ const timer = (deadline) => {
         let hours = Math.floor(timeRemaining / 60 / 60);
         let minutes = Math.floor((timeRemaining / 60) % 60);
         let seconds = Math.floor(timeRemaining % 60);
-
         return { timeRemaining, hours, minutes, seconds }
     }
 
