@@ -16,7 +16,6 @@ const timer = (deadline) => {
     }
 
     const updateClock = () => {
-        console.log('sec');
         let getTime = getTimeRemaining ();
         timerHours.textContent = getTime.hours < 10 ? '0' + getTime.hours : getTime.hours;
         timerMinutes.textContent = getTime.minutes < 10 ? '0' + getTime.minutes : getTime.minutes;
