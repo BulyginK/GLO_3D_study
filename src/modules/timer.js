@@ -27,7 +27,6 @@ const timer = (deadline) => {
             timerSeconds.textContent = '00';
         }
     }
-    updateClock()
 
     interval = setInterval(updateClock, 500);
 }
