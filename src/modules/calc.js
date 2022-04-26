@@ -1,6 +1,5 @@
 const calc = () => {
     const calcInput = document.querySelectorAll('#calc input');
-    const form = document.querySelectorAll('[name="user_form"]')
     const userName = document.querySelectorAll('[name="user_name"]');
     const formEmail = document.querySelectorAll('[name="user_email"]');
     const userPhone = document.querySelectorAll('[name="user_phone"]');
@@ -14,33 +13,25 @@ const calc = () => {
 
     for (let i = 0; i < userName.length; i++) {
         userName[i].addEventListener('input', (e) => {
-            if (!(/^[а-яА-Я\s-]+$/g.test(e.target.value))) {
-                e.target.value = e.target.value.replace(/.$/, "")
-            }
+            e.target.value = e.target.value.replace(/[^а-яА-Я\s-]/, "");
         });
     };
 
     for (let i = 0; i < formEmail.length; i++) {
         formEmail[i].addEventListener('input', (e) => {
-            if (!(/^[-\w\d_\.\!~\*\'\@]+$/gi.test(e.target.value))) {
-                e.target.value = e.target.value.replace(/.$/, "")
-            }
+            e.target.value = e.target.value.replace(/[^-\w\d_\.\!~\*\'\@]/i, "");
         });
     };
 
     for (let i = 0; i < userPhone.length; i++) {
         userPhone[i].addEventListener('input', (e) => {
-            if (!(/^[\d)(-]+$/g.test(e.target.value))) {
-                e.target.value = e.target.value.replace(/.$/, "")
-            }
+            e.target.value = e.target.value.replace(/[^\d)(-]/, "");
         });
     };
 
     for (let i = 0; i < userMessage.length; i++) {
         userMessage[i].addEventListener('input', (e) => {
-            if (!(/^[а-яА-Я\s-]+$/g.test(e.target.value))) {
-                e.target.value = e.target.value.replace(/.$/, "")
-            }
+            e.target.value = e.target.value.replace(/[^а-яА-Я\s-]/, "");
         });
     };
 }
