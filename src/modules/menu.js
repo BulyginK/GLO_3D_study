@@ -3,20 +3,23 @@ const menu = () => {
     const menu = document.querySelector('menu');
     const closeBtn = menu.querySelector('.close-btn');
 
-
-    menuBtn.addEventListener('click', () => {
+    const classActive = () => {
         menu.classList.toggle('active-menu');
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        classActive();
     });
 
     menu.addEventListener('click', (e) => {
         if (e.target === closeBtn) {
-            e.preventDefault()
-            menu.classList.toggle('active-menu');
+            e.preventDefault();
+            classActive();
         } else if (e.target.matches('ul>li>a')) {
-            menu.classList.toggle('active-menu');
+            classActive();
         }
-    })
-
+    });
 }
 
 export default menu
