@@ -12,7 +12,7 @@ const validate = () => {
 
     for (let i = 0; i < formEmail.length; i++) {
         formEmail[i].addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^-\w\d_\.\!~\*\'\@]/i, "");
+            e.target.value = e.target.value.replace(/[^-\w\d_\.\!~\*\'@]/i, "");
         });
     };
 
