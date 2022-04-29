@@ -1,6 +1,13 @@
 const scroll = () => {
-   const itemMenu = document.querySelectorAll('menu>ul>li>a');
-   console.log(itemMenu);
+    const menu = document.querySelector('menu');
+    const itemMenu = menu.querySelectorAll('ul>li>a');
+
+    itemMenu.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector(item.hash).scrollIntoView(top);
+        })
+    })
 
 }
 
