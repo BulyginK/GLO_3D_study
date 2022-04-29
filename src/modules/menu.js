@@ -13,18 +13,13 @@ const menu = () => {
         if (menu.classList.contains('active-menu') && e.target.closest('button')) {
             e.preventDefault();
             classActive();
-        }
+        };
 
         if (menu.classList.contains('active-menu') && !e.target.closest('menu')) {
             classActive();
-        }
-
-        if (menuBtn.contains(e.target)) {
-            e.preventDefault();
-            classActive()
         };
 
-        if (e.target === closeBtn) {
+        if (menuBtn.contains(e.target) || e.target === closeBtn) {
             e.preventDefault();
             classActive();
         };
