@@ -19,12 +19,8 @@ const menu = () => {
             classActive();
         };
 
-        if (menuBtn.contains(e.target) || e.target === closeBtn) {
+        if (menuBtn.contains(e.target) || e.target === closeBtn || e.target.matches('menu>ul>li>a')) {
             e.preventDefault();
-            classActive();
-        };
-
-        if (e.target.matches('menu>ul>li>a')) {
             classActive();
         };
     });
