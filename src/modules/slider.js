@@ -2,7 +2,9 @@ const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content');
     const sliders = document.querySelectorAll('.portfolio-item');
     const dots = document.querySelectorAll('.dot');
+    const timeInterval = 2000;
     let currentSlide = 0;
+    let interval;
 
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass);
@@ -23,12 +25,12 @@ const slider = () => {
         nextSlide(dots, currentSlide, 'dot-active');
     };
 
-    const startSlide = () => {
-        setInterval(autoSlide, 2000)
+    const startSlide = (timer = 1500) => {
+        interval = setInterval(autoSlide, timer);
     };
 
     const stopSlide = () => {
-
+        clearInterval(interval);
     };
 
     sliderBlock.addEventListener('click', (e) => {
@@ -65,7 +67,19 @@ const slider = () => {
         nextSlide(dots, currentSlide, 'dot-active');
     })
 
-    startSlide()
+    sliderBlock.addEventListener('mouseenter', (e) => {
+        if (e.target.matches('.dot, .portfolio-btn')) {
+            stopSlide();
+        }
+    }, true);
+
+    sliderBlock.addEventListener('mouseleave', (e) => {
+        if (e.target.matches('.dot, .portfolio-btn')) {
+            startSlide(timeInterval);
+        }
+    }, true)
+
+    startSlide(timeInterval)
 }
 
 export default slider
