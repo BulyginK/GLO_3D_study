@@ -9,7 +9,7 @@ import slider from './modules/slider'
 
 
 
-timer('29 april 2022')
+timer('04 may 2022')
 menu()
 scroll()
 modal()

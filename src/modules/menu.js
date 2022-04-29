@@ -4,22 +4,12 @@ const menu = () => {
     const menu = document.querySelector('menu');
     const closeBtn = menu.querySelector('.close-btn');
 
-
     const classActive = () => {
         menu.classList.toggle('active-menu');
     };
 
     body.addEventListener('click', (e) => {
-        if (menu.classList.contains('active-menu') && e.target.closest('button')) {
-            e.preventDefault();
-            classActive();
-        };
-
-        if (menu.classList.contains('active-menu') && !e.target.closest('menu')) {
-            classActive();
-        };
-
-        if (menuBtn.contains(e.target) || e.target === closeBtn || e.target.matches('menu>ul>li>a')) {
+        if (menuBtn.contains(e.target) || e.target === closeBtn || e.target.matches('menu>ul>li>a') || !e.target.matches('menu')) {
             e.preventDefault();
             classActive();
         };
