@@ -8,11 +8,13 @@ const menu = () => {
         menu.classList.toggle('active-menu');
     };
 
-    body.addEventListener('click', (e) => {
-        if (menuBtn.contains(e.target) || e.target === closeBtn || e.target.matches('menu>ul>li>a') || !e.target.matches('menu')) {
+    body.addEventListener('click', (e) => {contains
+        if (menuBtn.contains(e.target) || e.target === closeBtn || e.target.matches('menu>ul>li>a') || (menu.classList.contains('active-menu') && !e.target.matches('menu'))) {
             e.preventDefault();
             classActive();
         };
+
+        // !e.target.matches('menu')
     });
 }
 
