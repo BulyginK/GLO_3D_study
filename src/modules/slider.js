@@ -1,10 +1,19 @@
 const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content');
     const sliders = document.querySelectorAll('.portfolio-item');
-    const dots = document.querySelectorAll('.dot');
+    const portfolioDots = document.querySelector('.portfolio-dots');
+
     const timeInterval = 2000;
     let currentSlide = 0;
     let interval;
+    let dots;
+
+    for (let i = 0; i < sliders.length; i++) {
+        let dot = document.createElement('li');
+        portfolioDots.appendChild(dot);
+        dot.classList.add('dot');
+        dots = document.querySelectorAll('.dot');
+    }
 
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass);
@@ -77,9 +86,9 @@ const slider = () => {
         if (e.target.matches('.dot, .portfolio-btn')) {
             startSlide(timeInterval);
         }
-    }, true)
+    }, true);
 
-    startSlide(timeInterval)
+    startSlide(timeInterval);
 }
 
 export default slider
