@@ -12,6 +12,9 @@ const slider = () => {
         let dot = document.createElement('li');
         portfolioDots.appendChild(dot);
         dot.classList.add('dot');
+        if (i == 0) {
+            dot.classList.add('dot-active');
+        }
         dots = document.querySelectorAll('.dot');
     }
 
