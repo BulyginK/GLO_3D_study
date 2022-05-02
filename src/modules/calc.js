@@ -7,6 +7,7 @@ const calc = (price = 100) => {
     const calcCount = document.querySelector('.calc-count');
     const calcDay = document.querySelector('.calc-day');
     const total = document.getElementById('total');
+    let totalValue = 0;
 
 
     for (let i = 0; i < calcInput.length; i++) {
@@ -19,7 +20,6 @@ const calc = (price = 100) => {
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
         const calcSquareValue = calcSquare.value;
 
-        let totalValue = 0;
         let calcCountValue = 1;
         let calcDayValue = 1;
 
@@ -35,28 +35,12 @@ const calc = (price = 100) => {
 
         if (calcType.value && calcSquare.value) {
             totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
-            // runTotalValue(totalValue);
         } else {
             totalValue = 0;
         }
 
-        showResult()
+        showResult();
     }
-
-    // const runTotalValue = (totalValue) => {
-    //     let t = 1000 / totalValue;
-    //     console.log(t);
-    //     let n = 0;
-    //     let interval = setInterval(() => {
-    //         n = n + 10;
-    //         if (n > totalValue) {
-    //             clearInterval(interval);
-    //             showResult()
-    //             return
-    //         }
-    //         total.innerHTML = n;
-    //     }, t);
-    // }
 
     const showResult = () => {
         total.innerHTML = totalValue;
