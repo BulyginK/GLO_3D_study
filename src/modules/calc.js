@@ -35,12 +35,26 @@ const calc = (price = 100) => {
 
         if (calcType.value && calcSquare.value) {
             totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
+            runTotalValue(totalValue);
         } else {
             totalValue = 0;
         }
+    }
 
-        total.textContent = totalValue;
-
+    const runTotalValue = (totalValue) => {
+        let t = 1000 / totalValue;
+        console.log(t);
+        let n = 0;
+        let interval = setInterval(() => {
+            n = n + 10;
+            if (n > totalValue) {
+                console.log('стоп');
+                clearInterval(interval);
+                total.innerHTML = totalValue;
+                return
+            }
+            total.innerHTML = n;
+        }, t);
     }
 
     calcBlock.addEventListener('input', (e) => {
