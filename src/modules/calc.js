@@ -49,11 +49,15 @@ const calc = (price = 100) => {
             n = n + 10;
             if (n > totalValue) {
                 clearInterval(interval);
-                total.innerHTML = totalValue;
+                showResult()
                 return
             }
             total.innerHTML = n;
         }, t);
+    }
+
+    const showResult = () => {
+        total.innerHTML = totalValue;
     }
 
     calcBlock.addEventListener('input', (e) => {
