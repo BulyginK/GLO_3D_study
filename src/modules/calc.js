@@ -43,7 +43,6 @@ const calc = (price = 100) => {
 
     const runTotalValue = () => {
         let t = 100 / totalValue;
-        console.log(t);
         let n = 0;
         let interval = setInterval(() => {
             n = n + 20;
