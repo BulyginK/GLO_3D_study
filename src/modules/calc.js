@@ -48,7 +48,6 @@ const calc = (price = 100) => {
         let interval = setInterval(() => {
             n = n + 10;
             if (n > totalValue) {
-                console.log('стоп');
                 clearInterval(interval);
                 total.innerHTML = totalValue;
                 return
