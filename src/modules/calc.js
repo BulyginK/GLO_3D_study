@@ -1,3 +1,5 @@
+import { animate } from './helpers'
+
 const calc = (price = 100) => {
     const calcInput = document.querySelectorAll('#calc input');
 
@@ -42,21 +44,19 @@ const calc = (price = 100) => {
     }
 
     const runTotalValue = () => {
-        let t = 100 / totalValue;
-        let n = 0;
-        let interval = setInterval(() => {
-            n = n + 20;
-            if (n > totalValue) {
-                clearInterval(interval);
-                showResult()
-                return
+        animate({
+            duration: 200,
+            timing(timeFraction) {
+                return timeFraction;
+            },
+            draw(progress) {
+                showResult(progress)
             }
-            total.innerHTML = n;
-        }, t);
+        });
     }
 
-    const showResult = () => {
-        total.innerHTML = totalValue;
+    const showResult = (progress) => {
+        total.innerHTML = Math.round(totalValue * progress);
     }
 
     calcBlock.addEventListener('input', (e) => {
