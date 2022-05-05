@@ -1,7 +1,12 @@
-const slider = (classSliderBlock) => {
+// 
+const slider = (classSliderBlock, classSliders, classDots, classActiveSlider = 'active-slide', classActiveDot = 'active-dot') => {
     const sliderBlock = document.querySelector(classSliderBlock);
-    const sliders = document.querySelectorAll('.portfolio-item');
-    const portfolioDots = document.querySelector('.portfolio-dots');
+    const sliders = document.querySelectorAll(classSliders);
+    const portfolioDots = document.querySelector(classDots);
+
+    if (!sliderBlock) return
+    if (!sliders) return
+    if (!portfolioDots) return
 
     const timeInterval = 2000;
     let currentSlide = 0;
@@ -13,7 +18,7 @@ const slider = (classSliderBlock) => {
         portfolioDots.appendChild(dot);
         dot.classList.add('dot');
         if (i == 0) {
-            dot.classList.add('dot-active');
+            dot.classList.add(classActiveDot);
         }
         dots = document.querySelectorAll('.dot');
     }
@@ -27,14 +32,14 @@ const slider = (classSliderBlock) => {
     }
 
     const autoSlide = () => {
-        prevSlide(sliders, currentSlide, 'portfolio-item-active');
-        prevSlide(dots, currentSlide, 'dot-active');
+        prevSlide(sliders, currentSlide, classActiveSlider);
+        prevSlide(dots, currentSlide, classActiveDot);
         currentSlide++;
         if (currentSlide >= sliders.length) {
             currentSlide = 0;
         }
-        nextSlide(sliders, currentSlide, 'portfolio-item-active');
-        nextSlide(dots, currentSlide, 'dot-active');
+        nextSlide(sliders, currentSlide, classActiveSlider);
+        nextSlide(dots, currentSlide, classActiveDot);
     };
 
     const startSlide = (timer = 1500) => {
@@ -52,8 +57,8 @@ const slider = (classSliderBlock) => {
             return
         }
 
-        prevSlide(sliders, currentSlide, 'portfolio-item-active');
-        prevSlide(dots, currentSlide, 'dot-active');
+        prevSlide(sliders, currentSlide, classActiveSlider);
+        prevSlide(dots, currentSlide, classActiveDot);
 
         if (e.target.matches('#arrow-right')) {
             currentSlide++;
@@ -75,8 +80,8 @@ const slider = (classSliderBlock) => {
             currentSlide = sliders.length - 1;
         }
 
-        nextSlide(sliders, currentSlide, 'portfolio-item-active');
-        nextSlide(dots, currentSlide, 'dot-active');
+        nextSlide(sliders, currentSlide, classActiveSlider);
+        nextSlide(dots, currentSlide, classActiveDot);
     })
 
     sliderBlock.addEventListener('mouseenter', (e) => {
