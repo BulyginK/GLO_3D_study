@@ -18,7 +18,7 @@ const validate = () => {
 
     for (let i = 0; i < userPhone.length; i++) {
         userPhone[i].addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^\d)(-]/, "");
+            e.target.value = e.target.value.replace(/[^\d\+)(-]/, "");
         });
     };
 

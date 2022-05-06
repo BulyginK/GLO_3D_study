@@ -17,6 +17,7 @@ const sendForm = () => {
 
 const sendForms = ({ formId, someElem = [] }) => {
     const form = document.getElementById(formId);
+
     const statusBlock = document.createElement('div');
     const loadText = 'Загрузка...';
     const errorText = 'Ошибка...';
@@ -24,8 +25,17 @@ const sendForms = ({ formId, someElem = [] }) => {
 
     const validate = (list) => {
         let success = true;
-
-        return success
+        const userName = form.querySelector('[name="user_name"]');
+        const userPhone = form.querySelector('[name="user_phone"]');
+        const userMessage = form.querySelector('[name="user_message"]');
+        if (/^[а-яА-Я\s]+$/.test(userName.value) && /^[\d(\+)-]+$/.test(userPhone.value)) {
+            if (!userMessage == null && /^[а-яА-Я\s\d:;,\.!?"'-]+$/g.test(userMessage.value)) {
+                return success
+            }
+            return success
+        } else {
+            return success = false
+        }
     }
 
     const sendData = (data) => {
@@ -75,7 +85,11 @@ const sendForms = ({ formId, someElem = [] }) => {
                     statusBlock.textContent = errorText;
                 })
         } else {
-            alert('Данные не валидны')
+            alert('Данные не валидны');
+            statusBlock.textContent = errorText;
+            formElements.forEach(input => {
+                input.value = '';
+            })
         }
     }
 
