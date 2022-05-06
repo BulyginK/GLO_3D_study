@@ -10,7 +10,7 @@ import sendForm from './modules/sendForm'
 
 
 
-timer('04 may 2022')
+timer('09 may 2022')
 menu()
 scroll()
 modal()
@@ -18,4 +18,4 @@ calc()
 validate()
 tabs()
 slider()
-sendForm()
+sendForm('form1')
