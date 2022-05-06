@@ -1,4 +1,21 @@
-const sendForm = ({ formId, someElem = [] }) => {
+const sendForm = () => {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(elem => {
+        const idForms = elem.id;
+
+        sendForms({
+            formId: idForms,
+            someElem: [
+                {
+                    type: 'block',
+                    id: 'total'
+                }
+            ]
+        })
+    })
+}
+
+const sendForms = ({ formId, someElem = [] }) => {
     const form = document.getElementById(formId);
     const statusBlock = document.createElement('div');
     const loadText = 'Загрузка...';
@@ -10,7 +27,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 
         return success
     }
-    
+
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -42,21 +59,21 @@ const sendForm = ({ formId, someElem = [] }) => {
                 formBody[elem.id] = element.value;
             }
         })
-        
+
         console.log('submit');
-        
-        if(validate(formElements)) {
-            sendData(formBody).
-                then(data => {
+
+        if (validate(formElements)) {
+            sendData(formBody)
+                .then(data => {
                     statusBlock.textContent = successText;
 
                     formElements.forEach(input => {
                         input.value = '';
                     })
+                })
                 .catch(error => {
                     statusBlock.textContent = errorText;
                 })
-            })
         } else {
             alert('Данные не валидны')
         }
@@ -69,12 +86,12 @@ const sendForm = ({ formId, someElem = [] }) => {
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-    
-            submitForm();        
+
+            submitForm();
         })
     } catch (error) {
         console.log(error.message);
-    }    
+    }
 }
 
 export default sendForm
