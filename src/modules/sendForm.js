@@ -22,6 +22,7 @@ const sendForms = ({ formId, someElem = [] }) => {
     const loadText = 'Загрузка...';
     const errorText = 'Ошибка...';
     const successText = 'Спасибо! Наш менеджер с Вами свяжется!';
+    let interval
 
     const validate = (list) => {
         let success = true;
@@ -54,6 +55,7 @@ const sendForms = ({ formId, someElem = [] }) => {
         const formBody = {};
 
         statusBlock.textContent = loadText;
+        statusBlock.style.color = '#fff';
         form.append(statusBlock)
 
         formData.forEach((val, key) => {
@@ -69,8 +71,6 @@ const sendForms = ({ formId, someElem = [] }) => {
                 formBody[elem.id] = element.value;
             }
         })
-
-        console.log('submit');
 
         if (validate(formElements)) {
             sendData(formBody)
@@ -102,6 +102,8 @@ const sendForms = ({ formId, someElem = [] }) => {
             e.preventDefault();
 
             submitForm();
+
+            setTimeout(() => statusBlock.remove(), 2500);
         })
     } catch (error) {
         console.log(error.message);
