@@ -22,7 +22,6 @@ const sendForms = ({ formId, someElem = [] }) => {
     const loadText = 'Загрузка...';
     const errorText = 'Ошибка...';
     const successText = 'Спасибо! Наш менеджер с Вами свяжется!';
-    let interval
 
     const validate = (list) => {
         let success = true;
