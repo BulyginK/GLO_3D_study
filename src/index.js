@@ -10,7 +10,7 @@ import sendForm from './modules/sendForm'
 
 
 
-timer('09 may 2022')
+timer('12 may 2022')
 menu()
 scroll()
 modal()
