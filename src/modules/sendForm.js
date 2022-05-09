@@ -28,15 +28,9 @@ const sendForms = ({ formId, someElem = [] }) => {
         const userName = form.querySelector('[name="user_name"]');
         const userPhone = form.querySelector('[name="user_phone"]');
         const userMessage = form.querySelector('[name="user_message"]');
-        console.log(/\S/.test(userName.value));
-        console.log(/^[а-яА-Я\s]+$/.test(userName.value));
-        console.log(/^[\d(\+)-]+$/.test(userPhone.value));
         if (/\S/.test(userName.value)) {
-            console.log('1');
             if (/^[а-яА-Я\s]+$/.test(userName.value) && /^[\d(\+)-]+$/.test(userPhone.value)) {
-                console.log('2');
                 if (!userMessage == null && /^[а-яА-Я\s\d:;,\.!?"'-]+$/g.test(userMessage.value)) {
-                    console.log('3');
                     return success
                 }
             }
