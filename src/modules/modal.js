@@ -22,7 +22,7 @@ const modal = () => {
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             modal.style.display = 'block';
-            if (screen.width > 768) { modalAnimate() };
+            if (window.screen.width > 767) { modalAnimate() };
         })
     });
 
